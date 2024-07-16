@@ -1,0 +1,13 @@
+[Unit]
+Description=RTL-SDR Server
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/sh -c "/usr/bin/rtl_tcp -a $(hostname -I) -p 5003"
+WorkingDirectory=/home/rs41
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
